@@ -15,32 +15,33 @@
  */
 
 buildscript {
-    ext.kotlin_version = '1.5.10'
-    ext.compose_version = '1.0.0'
-    ext.coroutines_version = '1.4.2'
-    ext.nav_compose_version = '2.4.0-alpha06'
-    ext.accompanist_verison = '0.16.0'
+    ext.kotlin_version = '2.0.21'
+    ext.compose_version = '1.7.6'
+    ext.coroutines_version = '1.9.0'
+    ext.nav_compose_version = '2.8.5'
+    ext.accompanist_verison = '0.37.0'
 
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0-alpha08'
+        classpath 'com.android.tools.build:gradle:8.7.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 plugins {
     id 'com.diffplug.spotless' version '5.7.0'
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
 }
 
 subprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     apply plugin: 'com.diffplug.spotless'

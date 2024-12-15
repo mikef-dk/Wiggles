@@ -20,21 +20,21 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
-import androidx.navigation.compose.navArgument
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import dev.spikeysanju.wiggles.data.FakeDogDatabase
 import dev.spikeysanju.wiggles.navigation.Screen
 
 @ExperimentalAnimationApi
 @Composable
 fun WigglesMain(toggleTheme: () -> Unit) {
-    val navController = rememberAnimatedNavController()
-    AnimatedNavHost(navController, startDestination = Screen.Home.route) {
+    val navController = rememberNavController()
+    NavHost(navController, startDestination = Screen.Home.route) {
         composable(
             Screen.Home.route,
-            exitTransition = { _, _ ->
+            exitTransition = {
                 slideOutHorizontally(
                     targetOffsetX = { -300 },
                     animationSpec = tween(
@@ -43,7 +43,7 @@ fun WigglesMain(toggleTheme: () -> Unit) {
                     )
                 ) + fadeOut(animationSpec = tween(300))
             },
-            popEnterTransition = { _, _ ->
+            popEnterTransition = {
                 slideInHorizontally(
                     initialOffsetX = { -300 },
                     animationSpec = tween(
@@ -57,7 +57,7 @@ fun WigglesMain(toggleTheme: () -> Unit) {
         }
         composable(
             "${Screen.Details.route}/{id}/{title}/{location}",
-            enterTransition = { _, _ ->
+            enterTransition = {
                 slideInHorizontally(
                     initialOffsetX = { 300 },
                     animationSpec = tween(
@@ -66,7 +66,7 @@ fun WigglesMain(toggleTheme: () -> Unit) {
                     )
                 ) + fadeIn(animationSpec = tween(300))
             },
-            exitTransition = { _, _ ->
+            exitTransition = {
                 slideOutHorizontally(
                     targetOffsetX = { 300 },
                     animationSpec = tween(

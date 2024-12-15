@@ -1,15 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'org.jetbrains.kotlin.plugin.compose'
 }
 
 android {
-    compileSdkVersion 30
+
+    namespace = "dev.spikeysanju.wiggles"
 
     defaultConfig {
         applicationId "com.example.androiddevchallenge"
         minSdkVersion 23
-        targetSdkVersion 30
+        compileSdk 35
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
 
@@ -64,24 +67,24 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation "androidx.activity:activity-compose:1.3.0-alpha03"
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation "androidx.activity:activity-compose:1.9.3"
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.7'
 
     testImplementation 'junit:junit:4.13.2'
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
     // compose navigation
     implementation "androidx.navigation:navigation-compose:$nav_compose_version"
 
     // navigation animation
-    implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_verison"
+//    implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_verison"
 }
